@@ -1,0 +1,157 @@
+\documentclass[10pt]{article}
+\title{On Analysis}
+\author{Sachidananda Urs}
+\begin{document}
+\maketitle
+
+\begin{abstract}
+  This article aims to answer two questions, {\em what is analysis?} and {\em why
+    do analysis?} These are the notes from Terence Tao's book {\bf Analysis I}.
+\end{abstract}
+
+\section*{What is analysis?}
+{\em Analysis} is the rigourous study of a subject. In {\em Real Analysis} we
+study the qualitative and quantitave behaviour of real numbers, sequences and
+series of real numbers, and real valued functions.
+
+In studying real numbers, we are concerned in answering the following questions:
+\begin{enumerate}
+\item What is a real number?
+\item Is there a largest real number?
+\item After 0 what is the next real number? [Smallest positive real number]
+\item Can a real number be cut into infinitely many pieces?
+\item Why does 2 has a square root where as -2 does not?
+\item If real and rational numbers are infinite, why are there more reals?
+\item How do you take the limit of a sequence of real numbers?
+\item Which sequences have limit, which don't?
+\item If a sequence can be stopped from escaping to infinity, does it settle
+  down and converge?
+\item Can infinitely many real numbers can be added and still get a finite real
+  number?
+\item Can infinitely many rationals be added and still get a non-rational
+  number?
+\item If the elements of an infinite sum are rearranged, is the sum still the
+  same?
+\item What does it mean for a function to be continuous?
+\item What does it mean for a function to be differentiable?
+\item What does it mean for a function to be integrable?
+\item What does it mean for a function to be bounded?
+\item Can multiple functions be added infinitely?
+\item Can you take limits of sequences of functions?
+\item Can you differentiate an infinite series of functions?
+\item Can you integrate an infinite series of functions?
+\item If \( f(0) = 3 \) and \( f(1) = 5 \), does the function take all the
+  values between 3 and 5 within its domain \( [0, 1] \) or \( (0, 1) \).
+\end {enumerate}
+
+
+
+{\em Real Analysis} is the foundation for calculus. Though we have worked on
+hundreds of problems in differential and integral calculus, by doing analysis we
+can understand what is really happening under the hood.
+
+\section*{Why do analysis?}
+There is a philosophical satisfaction in knowing why things work. Also, one can
+get into trouble if the rules of calculus are applied without blindly without
+knowing where they came from and what the limits of their applicability are.
+\break
+To prove the above claim, consider the following examples.
+
+\subsection*{Example 1: Division by zero}
+Consider the cancellation law \( ac = bc => a = b \), the cancellation doesn't
+work if \( c = 0 \). (Why?)
+
+To answer the question, consider the identity \( 1 \cdot 0 = 2 \cdot 0 \). The
+identity is true, however if the cancellation law is applied blindly, we cancel
+out the zeroes and end up with \( 1 = 2 \) which is absurd.
+
+In this case the division by 0 is obvious, but it can be more hidden in other
+cases.
+
+\subsection*{Example 2: Divergent series}
+Consider the geometric series,
+
+\begin{center}
+  \( S = 1 + \frac{1}{2} + \frac{1}{4} + \frac{1}{8} + \frac{1}{16} + \cdots \)
+\end{center}
+
+Multiply the series by 2 and we get
+
+\begin{center}
+  \( 2S = 2 + 1 + \frac{1}{2}+\frac{1}{4}+\frac{1}{8}+\frac{1}{16} + \cdots \) =
+  2+S
+\end{center}
+and \( S = 2 \).
+
+\break
+Now apply the same trick to the series
+
+\begin{center}
+  \( S = 1 + 2 + 4 + 8 + \cdots \)
+
+  \( 2S = 2 + 4 + 8 + 16 + \cdots \)
+\end{center}
+
+Adding 1 to both sides
+\begin{center}
+  \( 2S + 1 = 1 + 2 + 4 + 8 + 16 + \cdots = S \)
+\end{center}
+
+and \( S = -1 \), which is absurd. So, why does the trick work for one series
+and not for another?\hfill
+\break
+
+Now consider another series
+\begin{center}
+  \( S = 1 - 1 + 1 - 1 + \cdots \)
+\end{center}
+
+We rearrane the series in three different ways and get three different
+results. Which one is correct?
+
+\begin{center}
+  \( S = 1 - ( 1 + 1 - 1 + 1 - 1 ) \cdots = 1 - S \)
+\end{center}
+gives  \( \frac {1}{2} \) as the sum of the series.\\
+
+Consider another arrangement
+\begin{center}
+  \( S = (1 - 1) + (1 - 1) + (1 - 1) \cdots \)
+\end{center}
+which gives 0 as the sum of the series.\\
+
+Yet another arrangement
+\begin{center}
+  \( S = 1 + (- 1 + 1) + (- 1 + 1) + (- 1 + 1) \cdots \)
+\end{center}
+gives 1 as the result of the series.
+
+\subsection*{Example 3: Divergent sequences}
+Let x be a real number and let L be the limit
+
+\[ L = \lim_{n\to\infty}x^n \]
+Changing variables \( n = m + 1 \) we have
+
+\[ L = \lim_{m+1\to\infty}x^{m+1} = \lim_{m+1\to\infty} x \cdot x^m = x \cdot
+\lim_{m+1\to\infty}x^{m} \]
+But if \( m + 1 \to \infty \) then \( m \to \infty \), thus we have
+
+\[ \lim_{m+1\to\infty}x^{m} = \lim_{m\to\infty} x^m = \lim_{n\to\infty}x^{n} =
+L \]
+and thus \( x\cdot L = L \).
+
+At this point we cancel the L's and conclude \( x = 1 \). Or because of our
+previous experience of blind cancellation problems we can safely assume that \(L = 0\).
+In particular, we seem to have shown
+
+\[ \lim_{n\to\infty}x^{n} = 0 \] for all \(x \ne 1 \).
+
+But is this a legitimate conclusion? It proves to be absurd if we go for
+specific values of x. For example for x = 2 our result states \( 1, 2, 4, 8,
+\cdots \) converges to 0. And for x = 1 \( 1, -1, 1, -1, \cdots \) converges
+0. Which of these conclusions are right?
+
+Analysis helps in understanding these kinds of problems. For more examples refer
+{\em Analysis I} by {\em T. Tao}.
+
+\end{document}
