@@ -1,0 +1,130 @@
+\documentclass[10pt]{article}
+\usepackage{amsmath}
+\title{Introduction to Natural Numbers}
+\author{Sachidananda Urs}
+\begin{document}
+\maketitle
+
+\begin{abstract}
+This document tries to answer the questions ``\emph{What is the motivation to
+study the concept of Natural numbers?}'' and ``\emph{why do we analyse their
+properties?''}
+\end{abstract}
+
+\section*{Why study Natural Numbers?}
+We have dealt with numbers and manipulated the rules of algebra all our
+lives. By going back to basics we understand why the rules work at all. For
+example we know $ a(b+c) = ab + ac $ and $ab = ba$. This is seemingly an obvious
+rule, we will study why this is so obvious. Even though the rules are obvious,
+the proof is not really easy.
+
+The different number systems are $ N \to Z \to Q \to R \to C $, in the order of
+complexity, where each is used to build the next one.
+
+We will learn how to define the natural numbers (\textbf{N}) using Peano axioms,
+and use naturals to define integers, and integers are used to define rationals,
+and finally we use rationals to define reals.
+\\[6pt]
+\textbf {Definition [Informal]}
+
+A natural number is any element of the set $ N~=~\{0, 1, 2, 3, ... \} $
+The set contains all the numbers starting from 0 and then counting forward
+indefinitely.
+
+The natural number system can be defined using two fundamental concepts; the
+number 0, and the increment operation.
+
+With these simple operations we define complicated operations:
+\begin{itemize}
+\setlength{\itemsep}{0pt}
+\item[] addition --- repeated increments
+\item[] multiplication --- repeated addition
+\item[] exponentiation --- repeated multiplication
+\end{itemize}
+
+We omit subtraction and division as they are not closed under natural numbers.
+\\[6pt]
+\textbf{On Peano Axioms}
+
+To define the natural numbers we use five axioms called the Peano axioms. It is
+the standard way to define natural numbers.
+However, this is not the only way to define the natural numbers. Cardinality of
+finite sets can also be used, but Peano axioms are the standard and widely used
+method to define natural numbers.
+
+\begin{itemize}
+\setlength{\itemsep}{0pt}
+\item[] \textbf{Axiom 1} 0 is a natural number.
+\item[] \textbf{Axiom 2} If n is a natural number n++ is also a natural number.
+\item[] \textbf{Axiom 3} 0 is not the successor of any natural number. i.e if n is a natural
+number n++ != 0.
+\item[] \textbf{Axiom 4} Different natural numbers have different successors i.e if n and m are
+natural numbers and n != m then n++ != m++. Equivalently if n++ = m++ then n =
+m.
+\item[] \textbf{Axiom 5} \emph{[Principle Of Mathematical Induction]} Let p(n) is any property pertaining
+to a natural number n. Suppose that p(0) is true, and suppose that whenever p(n)
+is true, p(n++) is also true. Then P(n) is true for every natural number.
+\end{itemize}
+
+\begin{flushleft}
+\textbf{\large{Propositions}}
+\end{flushleft}
+
+\textbf{Proposition:} 3 is a natural number
+\\[4pt]
+\emph{How to prove it?} We make use of two Peano axioms \emph{(1 and 2)}
+
+0 is a natural number \emph{(axiom 1)}. By axiom 2, 1 := 0++ is a natural
+number, 2 := 1++ is a natural number and applying axiom 2 again 3 := 2++ is a
+natural number. Thus 3 is a natural number.
+\\[4pt]
+\textbf{Discussion:} \emph{Are axioms 1 and 2 enough to define natural numbers?}
+Not exactly, consider the possibility of wrapping around. i.e after 0, 1, 2, 3
+what if 3++ = 0. Axiom 1 and 2 does not prevent this possibility. Axiom 3 (see
+above) prevents this possibility.
+\\[4pt]
+\textbf{Proposition:} 4 is not equal to 0
+
+By repeated application of axiom 1 and 2 we have 0, and 4~:=~((((0++)\-++)++)++)
+i.e 4~:=~3++. By axiom 3, 0 is not a successor of any natural number. Which
+implies $3++ \ne  0$ Or $4 \ne 0$.
+
+Now again repeating the question \emph{``Are axioms 1, 2, and 3 enough to define
+the natural number system?''}
+
+Answer is still no. This scheme does not rule out the possibility that the
+natural number stops at an arbitrary number. For example, 3++~=~4, 4++~=~4, 5++~
+=~4, so on\dots i.e the natural number system hits the ceiling.
+\\[4pt]
+Axiom 4 prevents this case from happening.
+\\[4pt]
+\textbf{Proposition:} 6 is not equal to 2.
+
+Can axiom 4 alone prove this proposition? 2 := 1++ and 6 := 5++. Since 1 and 5
+are natural numbers and different, they have different successors, hence 2 !=
+6. i.e 1 != 5 hence 2 != 6.
+This proof has a flaw, we assumed 1 and 5 are different without actually proving
+that fact. However if we can prove 1 and 5 are different, the proof will be
+complete.
+
+Consider the alternate proof (\emph{proof by contradiction}). Suppose 6~=~
+2, then 5++~=~1++. Then by axiom 4, 5 = 1 and thus 4++~=~0++, thus 4~=~0. But by
+our earlier proposition $4 \ne 0$, hence $6 \ne 2$.
+\\[6pt]
+\textbf{\large{Notes}}
+\begin{enumerate}
+\item The Peano axioms define natural numbers.
+\item Each individual number is finite, the set of natural numbers is infinite.
+\item $\infty$ is not one of the natural numbers. Calling $\infty$ as the
+      largest natural number is wrong.
+\item The natural numbers can approach $\infty$ but never actually reach it. That
+   is, N is infinite but consists of individually finite elements.
+\item However, there are other number systems which ``admit'' infinite numbers:
+\begin{enumerate}
+  \item Cardinals
+  \item Ordinals
+  \item p-adics
+\end{enumerate}
+\end{enumerate}
+
+\end{document}
