@@ -1,0 +1,244 @@
+\documentclass[10pt]{article}
+\usepackage{amsmath}
+\title {Addition Of Natural Numbers}
+\author {Sachidananda Urs}
+\begin{document}
+\maketitle
+
+\begin{abstract}
+This document discusses some of the properties of addition of natural
+numbers. We state and prove some of the lemmas and propositions related to
+addition of natural numbers.
+\end{abstract}
+
+\subsection*{Introduction}
+We have been trying to build natural numbers axiomatically, as of now we have
+the definitiion of natural numbers, increment operation, and a handful of
+axioms.
+
+\emph{Isn't this enough?}
+
+With the existing set of definitions we can just increment numbers. How to add
+two natural numbers, say 3 and 5? We can achieve by incrementing 5 three times
+or maybe incrementing 3, 5 times.
+
+This is an increment more than adding two to five. Which is one increment more
+than adding one to five, so on... we can formally rephrase the above discussion
+recursively.
+\\[4pt]
+
+\textbf{Definition} [\emph{Addition of natural numbers}] Let m be a natural
+number. To add 0 to m we define \(0 + m = m\). Now suppose, inductively we have
+defined how to add n to m. Then we can add n++ to m by defining \( (n++) + m =
+(n + m)++ \)
+\\[4pt]
+Now elaborating the earlier definition we can write as follows,
+\\[4pt]
+$ 0 + m = m $, \\
+$ 1 + m = (0++) + m = (0 + m)++ = m++ $\\
+$ 2 + m = (1++) + m = (1 + m)++ = ((0++) + m)++ = ((0 + m)++)++ = (m++)++ $\\
+so on...
+
+%% \raggedright
+\begin{flushleft}
+\textbf{Note}: The above definition of addition is assymetric because 5 + 3 is
+incrementing 3 five times and 3 + 5 is incrementing 5 three times. However, they
+yeild same results.
+\newpage
+\textbf{Lemma}: For any natural number n, $ n + 0 = n $
+\\[3pt]
+  [Note that this is different from $0 + n = n$ which we defined earlier as n
+    and we haven't proved $ a + b = b + a $ yet.]
+\\[4pt]
+\textbf{Proof}[Proof by induction]
+
+The base case $0 + 0 = 0$ follows since $0 + m = m$ for all natural numbers m
+and 0 is a natural number. Now suppose inductively we have proved $n + 0 = n$ we
+wish to prove for $n++$. $(n++) + 0 = (n + 0)++$ (By the definition of
+addition. And $(n + 0) = n$ by inductive step, hence we have
+$ (n++) + 0 = (n + 0)++ = n++$. Thus closes the induction.
+\\[6pt]
+\textbf{Lemma}: For any natural numbers n and m, $ n + (m++) = (n + m)++ $
+\\[3pt]
+  [Note that this is similar to earlier lemma, but we are showing that the
+    definition of the addition operation is commutative as well. Again, since we
+    have not yet showed $ a + b = b + a $ we cannot assume $ (a++) + b = a +
+    (b++) = (a + b)++. $ ]
+\\[4pt]
+\textbf{Proof}: [Proof by induction]
+
+We induct on n keeping m constant. For the base case $n = 0$ we have $ 0 + (m++)
+= m++ $ and $ (0 + m)++ = m++ $ thus LHS is equal to RHS, which proves our base
+case. Suppose inductively we have proved $ n + (m++) = (n + m)++ $ we wish to
+show that this is true for n++ as well. i.e we wish to prove $ (n++) + (m++) =
+((n++) + m)++ = ((n + m)++)++. $
+
+Now consider LHS $ (n++) + (m++)$ which is equal to $ (n + (m++))++$, by the
+definition of addition and by the inductive step we know $ n + (m++) = (n +
+m)++$ and hence we have LHS equal to $((n + m)++)++ $. And consider the RHS
+$((n++) + m)++ $ by the defintion of addition we write $((n + m)++)++$ hence we
+have LHS equal to RHS which closes the induction.
+\\[6pt]
+\textbf{Corollary} $n++ = n + 1$
+\\[4pt]
+\textbf{Proof} We have by earlier lemma $ n + 0 = n$ and $n++$ can be written as
+$ (n +0)++$.
+
+Thus we have  $ (n + 0)++ = n + (0++) $ again by earlier lemma we
+have $ n + (m++) = (n + m)++ $. We know by definition $ 0++ = 1$ hence we have
+$ (n + 0)++ = n + (0++) = n + 1 $.
+
+\end{flushleft}
+
+\subsubsection*{Addition is Commutative}
+\textbf{Proposition}: For any natural numbers n and m, $ n + m = m + n $
+\\[3pt]
+\textbf{Proof}: [\emph{We prove this by induction}
+
+  We induct on n keeping m constant. First the base case, $n = 0$. By the
+  earlier lemma we have $m + 0 = m$ and by definition we have $0 + m =m$ hence
+  we have $0 + m = m + 0$ which proves the base case.
+
+  Suppose inductively we have proved $ n + m = m + n $. Now we wish to show it
+  is true for $n++$, i.e $(n++) + m = m + (n++)$. Consider the LHS $(n++) + m$,
+  by the definition of addition $(n++) + m = (n + m)++$. Now consider the RHS
+  $m + (n++)$, by the earlier lemma $m + (n++) = (m + n)++$. By the inductive
+  step we know $ n + m = m + n$ hence we have the LHS and RHS as $(m + n)++$
+  which closes the induction.
+
+
+\subsubsection*{Addition is associative}
+\textbf{Proposition}: For any natural numbers a, b, and c we have $(a + b) + c =
+a + (b + c)$
+\\[3pt]
+\textbf{Proof}:
+
+TDB
+\\[6pt]
+\textbf{Proposition}: \emph{Cancellation Law}
+
+Let a, b, c be natural numbers such that $a + b = a + c$ then $ b = c $.
+\\[3pt]
+\textbf{Proof}
+
+[Note that we cannot use subtraction or negative numbers to prove this. We prove
+  this by induction, we induct on a, and prove that LHS = RHS]
+
+First let us consider the base case $a = 0$, we have $0 + b = 0 + c$ by earlier
+propositions we have $ b = c $, which proves our base case. And suppose
+inductively we have the the cancellation law for a (i.e $a + b = a + c$ implies
+$b = c$); now we wish to prove the cancellation law for $a++$.
+
+That is we wish to show $(a++) + b = (a++) + c$ implies $b = c$. By the
+definition of addition we have $(a++) + b = (a + b)++$ and $(a++) + c = (a+c)++$
+and thus $(a + b)++ = (a + c)++$. By \emph{\textbf{Axiom 4}} we have $a + b = a
++ c$ and by the inductive step $b = c$, which closes the induction.
+
+\subsubsection*{Addition and positivity}
+\textbf{Definition} \emph{Positive Natural Numbers}
+
+A natural number is said to be positive iff it is not equal to 0.
+\\[6pt]
+\textbf{Proposition}
+If \emph{a} is positive and {\em b} is a natural number then $a + b$ is
+positive.
+\\[3pt]
+\textbf{Proof}: [\emph{Proof by induction}]
+
+We induct on b (because we need 0?) keeping a constant. For the base case
+$b =0$, we have $a + 0 = a$ (by earlier lemma) which is positive, this proves
+the base case. Now suppose inductively we have proved $a + b$ is positive. We
+wish to prove for b++, i.e $a + (b++) = (a + b)++$ is positive.
+Now by \emph{\textbf{Axiom 3}} $a + (b++) = (a + b)++$ cannot be 0, since 0 is
+not a successor of any natural number. And by inductive step $(a+b)$ is positive
+and more so $(a + b)++$ is positive, which closes the induction.
+\\[6pt]
+\textbf{Corollary}: If a and b are natural numbers such that $a + b = 0$, then
+$a = 0$ and $ b = 0$
+\\[3pt]
+\textbf{Proof}: [We cannot use induction in this case, we use the earlier
+  proposition.]
+
+Suppose for the sake of contradiction $ a \ne 0$ or $b \ne 0$. If $a \ne 0$ then
+$a + b$ is positive (by proposition) and if $b \ne 0$ then $a+b$ is again
+positive, a contradiction in both cases.
+
+Hence if $a+b = 0$ then both a and b are equal to 0. If either one of them is
+positive then $a+b$ is not equal to 0.
+\\[6pt]
+\textbf{Lemma}: Let a be a positive number. Then there exists exactly one
+natural number b such that $b++ = a$
+\\[3pt]
+\textbf{Proof}
+
+TBD
+\subsubsection*{Notion of Order}
+\textbf{Definition}[\emph{Ordering of the Natural Numbers}]
+
+  Let n and m be natural numbers, we say that n is greater than or equal to m,
+  and write $n \geq m$ or $m \leq n$, if we have $n = m + a$ for some natural
+  number a. We say n is strictly greater than m and write $n > m$ or $m < n$
+  if and only if $n \geq m$ and $n \neq m$
+  \\[6pt]
+  Also note that $n++ > n$ for any n; thus there is no largest natural number n,
+  because next number $n++$ is always larger still.
+
+  The definition of ordering of natural numbers is beautiful. Or how else would
+  you say that a number is greater than another?
+\\[6pt]
+\textbf{Proposition} [\emph{Basic Properties of order for natural numbers}
+
+  Let \emph{a, b, c} be natural numbers then:
+
+  \begin{enumerate}
+  \item Order is reflexive: $a \geq b$
+  \item Order is transitive: if $a \geq b$ and $b \geq c$ then $a \geq c$
+  \item Order is anti-symmetric: if $a \geq b$ and $a \geq a$ then $a=b$
+  \item Addition preserves order: if $a \geq b$ iff $a+c \geq b+c$
+  \item $a < b$ iff $a++ \leq b$
+  \item $a < b$ iff $b=a+d$ for some positive number d
+  \end{enumerate}
+
+\flushleft
+\textbf{Proposition} [\emph{Trichotomy of order for natural numbers}]
+Let {\em a} and {\em b} be natural numbers, then exactly one of the following
+statements is true: $a < b$, $a = b$ or $a > b$
+
+[\emph{The proof is tricky, we first prove that we cannot have more than one of
+    the claim is true at the same time and then we prove at least one of the
+    statements is true. This is unconventional (at least for me).}]
+\\[5pt]
+Firstly we show that we cannot have more than one statement $a < b$, $a = b$
+or $a > b$ holding at the same time. (Note: we do not try to show only one of
+the claim is true, we can't).
+\\[3pt]
+If $a < b$, then by definition $a \ne b$. Again if, $a > b$, then $a \ne b$.
+
+And if $a>b$ and $a<b$ then $a = b$ (By above proposition)
+
+Thus no more than one of the statement is true.
+\\[4pt]
+Now we prove that at least one of the statements is true (we use induction for
+that). We keep b fixed and induct on a.
+
+Consider the base case $a = 0$, if $a=0$ then $a \leq b$ for all b, because by
+\emph{Axiom 3}, 0 is not a successor of any natural number. Since b is a natural
+number we have $b=0$ or $0<b$, which proves the base case.
+\\[4pt]
+Suppose we have proved the proposition inductively for a, we wish to prove it
+for $a++$
+
+From the trichotomy for a, there are three cases $a < b$, $a = b$ or $a > b$
+\begin{enumerate}
+\item If $a>b$, then $a++ > b$ because we have by earlier proposition, addition
+  preserves order. i.e $a>b$ then $a++ > b++$ and more so $a++ > b$.
+
+\item If $a = b$, then $a++ > b$ because, we know by the earlier definition $a++
+  > a$ for every natural number a, and we have $a=b$, hence $a++>a=b$ or $a++>b$
+
+\item Now suppose that $a<b$, then by earlier proposition $a++ \leq b$. Thus
+  $a++<b$ or $a++=b$ in either case we are done.
+\end{enumerate}
+This closes the induction.
+
+\end{document}
