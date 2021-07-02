@@ -113,7 +113,28 @@ a + (b + c)$
 \\[3pt]
 \textbf{Proof}:
 
-TDB
+We induct on a, keeping b and c constant. For the base case we have $a = 0$ and
+thus $(0 + b) + c = 0 + (b + c)$ which gives us $b + c = b + c$ which proves our
+base case.
+
+Suppose we have proved the proposition inductively i.e $(a+b)+c = a+(b+c)$.
+
+Now we wish to prove the proposition for $a++$.
+
+$((a++)+b)+c = (a++) + (b + c)$
+
+Consider the L.H.S $((a++)+b)+c$
+
+$= ((a+b)++)+c$
+
+$= ((a+b)+c)++$   [By the definition of addition]
+\\[3pt]
+Now consider the R.H.S $(a++)+(b+c)$
+
+= $(a+(b+c))++$
+
+And we have by the inductive step and by axiom 4 $((a+b)+c) = (a+(b+c))$. Which
+closes the induction.
 \\[6pt]
 \textbf{Proposition}: \emph{Cancellation Law}
 
@@ -171,7 +192,10 @@ natural number b such that $b++ = a$
 \\[3pt]
 \textbf{Proof}
 
-TBD
+For the sake of contradiction let there exist two natural numbers b and c such
+that $b++ = a$ and $c++ = a$. By axiom 4 we have $b = c$, hence there exists
+exactly one natural number such that $b++ = a$.
+
 \subsubsection*{Notion of Order}
 \textbf{Definition}[\emph{Ordering of the Natural Numbers}]
 
@@ -186,20 +210,70 @@ TBD
   The definition of ordering of natural numbers is beautiful. Or how else would
   you say that a number is greater than another?
 \\[6pt]
-\textbf{Proposition} [\emph{Basic Properties of order for natural numbers}
+\textbf{Proposition} [\emph{Basic Properties of order for natural numbers}]
 
   Let \emph{a, b, c} be natural numbers then:
 
   \begin{enumerate}
-  \item Order is reflexive: $a \geq b$
+  \item Order is reflexive: $a \geq a$
   \item Order is transitive: if $a \geq b$ and $b \geq c$ then $a \geq c$
-  \item Order is anti-symmetric: if $a \geq b$ and $a \geq a$ then $a=b$
+  \item Order is anti-symmetric: if $a \geq b$ and $b \geq a$ then $a=b$
   \item Addition preserves order: if $a \geq b$ iff $a+c \geq b+c$
   \item $a < b$ iff $a++ \leq b$
   \item $a < b$ iff $b=a+d$ for some positive number d
   \end{enumerate}
 
+\textbf{Order is reflexive}: $a \geq a$
+
+By the definition of ordering we have $a \geq a$ iff $a = a+b$ for some natural
+number b. For $b=0$ we have $a= a+0$ and b is a natural number which implies $a
+\geq a$.
+
+\textbf{Order is transitive}: if $a \geq b$ and $b \geq c$ then $a \geq c$
+
+By the definition of ordering if $a \geq b$ then $a=b+j$ for some natural number
+j.
+
+And $b \geq c$ then $b=c+k$ for some natural number k.
+
+And we can write $a=b+k$ as $a=c+j+k$ since j and k are natural numbers, by
+axiom 2, $j+k$ is a natural number.
+
+Hence it follows $a \geq c$
+
+\textbf{Order is anti-symmetric}: if $a \geq b$ and $b \geq a$ then $a=b$
+
+If $a \geq b$, then by definition $a = b+c$ for some natural number c.
+
+If $b \geq a$, then again by definition $b=a+d$ for some natural number d.
+
+By adding the above $a+b = b+c+a+d$ and $a+b = b+a+c+d$ (addition is
+commutative).
+
+And again $a+b=a+b+c+d$ and we can write the L.H.S as $(a+b)+0 = (a+b)+c+d$ and
+by the cancellation law we have $c+d=0$.
+
+By the earlier proposition if $c+d=0$, then $c=0$ and $d=0$.
+
+Thus we have $a=b+c$ and since $c=0$ we have $a=b+0$ or $a=b$. We can show $b=a$
+similarly.
+
+\textbf{Addition preserves order}: if $a \geq b$ iff $a+c \geq b+c$
+
+We have to prove that (i) if $a \geq b$ then $a+c \geq b+c$ and (ii) if $a+c
+\geq b+c$ then $a \geq b$.
+
+Case (i): If $a \geq b$, then by definition $a=b+x$ for some natural number x
+and $a+c = b+x+c$, $a+c = b+c+x$, and $a+c = (b+c)+x$ which implies $a+c \geq
+b+c$.
+
+Case (ii): If $a+c \geq b+c$ by definition $a+c = b+c+x$ and $a+c = b+x+c$ and
+by the cacellation law we have $a = b+x$ for some natural number x.
+
+And thus proves $a \geq b$ 
+
 \flushleft
+\newpage
 \textbf{Proposition} [\emph{Trichotomy of order for natural numbers}]
 Let {\em a} and {\em b} be natural numbers, then exactly one of the following
 statements is true: $a < b$, $a = b$ or $a > b$
